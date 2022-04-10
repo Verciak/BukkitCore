@@ -1,0 +1,276 @@
+database:
+  host: localhost
+  port: 3306
+  user: root
+  pass: domiS2002
+  base: xd
+deposit:
+  notch: 1
+  golden: 12
+  pearls: 4
+  arrows: 16
+  mycream: 1
+punishment:
+  ban: "&6Gracz: &e{PLAYER} &6zostal zbanowany za: &e{REASON} &6przez: &e{ADMIN} &7[{TIME}]"
+  permban: "&6Gracz: &e{PLAYER} &6zostal zbanowany za: &e{REASON} &6przez: &e{ADMIN} &7[N/A]"
+  unban: "&6Gracz: &e{PLAYER} &6zosal odbanowany przez: &e{ADMIN}!"
+cobblexx:
+  name: "&2&lCobbleX"
+  lore: ["&7Postaw aby wydropic epic itemy!", "", "&eSprawdz drop pod: &c/cobblex"]
+  message: "&6Wydropiles: {NAME}"
+pandoree:
+  name: "&5&lPandora"
+  lore: ["&7Postaw aby wydropic epic itemy!", "", "&eSprawdz drop pod: &c/pandora"]
+  message: "&6Gracz: &c{PLAYER} &6otworzyl pandore i wylosowal: &c{NAME}"
+  get: "&fOtrzymales &5&lPandore &fw ilosci &9{AMOUNT}"
+  all: "&eCaly serwer otrzymal &5&lPandore &7({AMOUNT})"
+mychesttt:
+  name: "&e&lMyChest"
+  lore: ["&7Postaw aby otworzyc skrzynke", "", "&eSprawdz drop pod: &c/mychest"]
+  message: "&eGracz: &e{PLAYER} &ewydropil: {NAME} &ez mychesta!"
+  chance: 2.0
+server:
+  tnt: true
+  pandore: true
+  kits: true
+  effects: true
+  mychest: false
+  diamond: true
+  enchants: false
+
+antilogout-commands: ["efekty"]
+drop-message: "&7Wydropiles: &6{DROP} &7x&a{AMOUNT} &7(+{EXP} exp)"
+randomtp:
+  min: 300
+  max: 2000
+chat:
+  format:
+    normal: "{TAG}{PREFIX}&7{PLAYER} &7[{POINTS}] &8&f{SUFFIX}{MESSAGE}"
+    admin: "{PREFIX}&c{PLAYER} &e&f{SUFFIX}{MESSAGE}"
+spawn-size: 50
+home-default: 1
+automessage:
+  time: 180
+  list: ["&6#1", "&6#3"]
+blockedcommands: ["plugins", "pl"]
+command:
+  pomoc:
+    - 1
+    - 2
+  vip:
+    - 1
+    - 2
+  premium:
+    - 1
+    - 2
+  premiumplus:
+    - 1
+    - 2
+  sponsor:
+    - 1
+    - 2
+  youtube:
+    - 1
+    - 2
+drops:
+  diamond:
+    name: "Diament"
+    item: "material:DIAMOND"
+    chance: 50.0
+    amount: 1-3
+    height: 0-90
+    exp: 10
+    fortune: true
+  gold:
+    name: "Zloto"
+    item: "material:GOLD_INGOT"
+    chance: 10.0
+    amount: 1-2
+    height: 0-50
+    exp: 5
+    fortune: true
+  iron:
+    name: "Zelazo"
+    item: "material:IRON_INGOT"
+    chance: 10.0
+    amount: 1-2
+    height: 0-50
+    exp: 5
+    fortune: true
+  emerald:
+    name: "Szmaragd"
+    item: "material:EMERALD"
+    chance: 10.0
+    amount: 1-6
+    height: 0-50
+    exp: 4
+    fortune: true
+  slime:
+    name: "Slimeball"
+    item: "material:SLIME_BALL"
+    chance: 10.0
+    amount: 1-2
+    height: 0-50
+    exp: 5
+    fortune: true
+  obsidian:
+    name: "Obsydian"
+    item: "material:OBSIDIAN"
+    chance: 10.0
+    amount: 1-2
+    height: 0-50
+    exp: 5
+    fortune: true
+  tnt:
+    name: "TNT"
+    item: "material:TNT"
+    chance: 10.0
+    amount: 1-2
+    height: 0-50
+    exp: 5
+    fortune: true
+  book:
+    name: "Ksiazka"
+    item: "material:BOOK"
+    chance: 10.0
+    amount: 1-2
+    height: 0-50
+    exp: 5
+    fortune: true
+  sand:
+    name: "Piasek"
+    item: "material:SAND"
+    chance: 10.0
+    amount: 1-2
+    height: 0-50
+    exp: 5
+    fortune: true
+  redstone:
+    name: "Redstone"
+    item: "material:REDSTONE"
+    chance: 10.0
+    amount: 1-2
+    height: 0-50
+    exp: 5
+    fortune: true
+  lapis:
+    name: "Lapis"
+    item: "material:INK_SACK data:4"
+    chance: 10.0
+    amount: 1-6
+    height: 0-50
+    exp: 4
+    fortune: true
+  enderpearl:
+    name: "Perla"
+    item: "material:ENDER_PEARL"
+    chance: 10.0
+    amount: 1-6
+    height: 0-50
+    exp: 4
+    fortune: true
+  apple:
+    name: "Jablko"
+    item: "material:APPLE"
+    chance: 10.0
+    amount: 1-6
+    height: 0-50
+    exp: 4
+    fortune: true
+
+exps:
+  stone: 10
+  obsidian: 30
+cobblex:
+  perla:
+    name: "&5Oko Endermana"
+    item: "material:ENDER_PEARL"
+    count: 1-2
+  tnt:
+    name: "&4TNT"
+    item: "material:TNT"
+    count: 8-8
+
+pandore:
+  golden:
+    name: "&eEnchantowane zlote jablko"
+    item: "material:GOLDEN_APPLE data:0 amount:3"
+    count: 1-3
+  stone:
+    name: "&cKamien"
+    item: "material:STONE amount:10"
+    count: 4-10
+  apple:
+    name: "&aJablko"
+    item: "material:APPLE amount:4"
+    count: 4-4
+
+mychest:
+  golden:
+    name: "&eEnchantowane zlote jablko"
+    item: "material:GOLDEN_APPLE data:0 amount:3"
+    count: 1-3
+  stone:
+    name: "&cKamien"
+    item: "material:STONE amount:10"
+    count: 4-10
+  apple:
+    name: "&aJablko"
+    item: "material:APPLE amount:4"
+    count: 4-4
+spawn-location: '263;64;257;-4.650696;19.050148'
+
+turboexp: 0
+turbodrop: 0
+mychestt: 0
+kits:
+  test:
+    #nazwa wyswietlana w gui
+    kitName: "&etest"
+    #permisja do odebrania kitu
+    perm: "mhCore.kit.test"
+    #item pokazywany w gui (jak mamy wiecej kitow nie moze byc taki sam)
+    icon: "IRON_ORE"
+    #deley po odebraniu liczony w minutach
+    deley: 10
+    #pozycja w gui
+    slot: 4
+    #itemy w kicie (enchanty: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html)
+    items:
+      - 'material:IRON_SWORD amount:1 data:0 enchants:DAMAGE_ALL;5@nl@FIRE_ASPECT;2 name:&6Item_&dSample lore:&afirst_line@nl@&csecound_line'
+  gracz:
+    #nazwa wyswietlana w gui
+    kitName: "&cGracz"
+    #permisja do odebrania kitu
+    perm: "mhCore.kit.gracz"
+    #item pokazywany w gui (jak mamy wiecej kitow nie moze byc taki sam) //
+    icon: "DIRT"
+    #deley po odebraniu liczony w minutach
+    deley: 1
+    #pozycja w gui
+    slot: 0
+    #itemy w kicie (enchanty: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html)
+    items:
+      - 'material:IRON_PICKAXE amount:1 data:0 enchants:DIG_SPEED;5@nl@DURABILITY;3 name:&6Item_&dSample lore:&afirst_line@nl@&csecound_line'
+list-of-services: "&aLista uslug: "
+list-line-service: "&8* {SERVICE}"
+no-found-service: "&4Blad: &cNie znaleziono takiej uslugi!"
+
+services:
+  vip:
+    chatMessages:
+      - "&6Gracz: &f{PLAYER} &6zakupil usluge &fVIP &6w naszym itemshopie!"
+      - "&aDziekujemy za wsparcie serwera!"
+    commands:
+      - "case {PLAYER} 5"
+      - "pex user {PLAYER} group set vip"
+  svip:
+    chatMessages:
+      - "&6Gracz: &f{PLAYER} &6zakupil usluge &fSVIP &6w naszym itemshopie!"
+      - "&aDziekujemy za wsparcie serwera!"
+    commands:
+      - "case {PLAYER} 10"
+      - "pex user {PLAYER} group set svip"
+  empty:
+    chatMessages: []
+    commands: []

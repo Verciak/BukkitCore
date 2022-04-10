@@ -1,0 +1,5 @@
+main: pl.vertty.core.CorePlugin
+version: 0.1
+author: VerttyPL
+api-version: 1.16
+name: VerttyCore
