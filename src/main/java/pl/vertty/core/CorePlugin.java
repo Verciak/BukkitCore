@@ -174,6 +174,8 @@ public class CorePlugin extends JavaPlugin
         this.getLogger().info("Zaladowano plugin mhCore w " + (System.currentTimeMillis() - startTime) / 1000.0 + "s");
     }
     public static void registerCommand() {
+        registerCommand(new TestCommand());
+
         registerCommand(new ADropCommand());
         registerCommand(new AitemshopCommand());
         registerCommand(new AMychestCommand());

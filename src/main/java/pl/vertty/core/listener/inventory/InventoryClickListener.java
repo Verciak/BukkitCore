@@ -4,9 +4,11 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.inventory.InventoryView;
+import org.bukkit.inventory.meta.ItemMeta;
 import pl.vertty.core.data.objects.Kit;
 import pl.vertty.core.data.objects.user.UserData;
 import org.bukkit.inventory.Inventory;
+import pl.vertty.core.menu.DropMenu;
 import pl.vertty.core.utils.*;
 import pl.vertty.core.enums.DepositType;
 import org.bukkit.Bukkit;
@@ -24,6 +26,8 @@ import org.bukkit.plugin.Plugin;
 import pl.vertty.core.CorePlugin;
 import org.bukkit.event.Listener;
 
+import java.util.List;
+
 public class InventoryClickListener implements Listener
 {
     private final CorePlugin plugin;
@@ -40,54 +44,48 @@ public class InventoryClickListener implements Listener
         final int itemslot = event.getSlot();
         final Player player = (Player)event.getWhoClicked();
         final UserData user = this.plugin.getUserManager().getUser(player);
-//        if (inventory.getTitle().equalsIgnoreCase(ChatUtils.colored("&9DROP")) && itemStack != null && itemStack.getItemMeta() != null && itemStack.getItemMeta().getDisplayName() != null) {
-//            final String itemName = ChatUtils.colored(event.getCurrentItem().getItemMeta().getDisplayName());
-//            for (final Drop drop : this.plugin.getDropManager().getDropList()) {
-//                if (itemName.equalsIgnoreCase(ChatUtils.colored("&6" + drop.getName()))) {
-//                    if (user.isDisabled(drop)) {
-//                        user.getDisabledDrops().remove(drop);
-//                    }
-//                    else {
-//                        user.getDisabledDrops().add(drop);
-//                    }
-//                    event.setCancelled(true);
-//                    this.plugin.getDropMenu().createInventory(player);
-//                }
-//            }
-//            if (itemName.equalsIgnoreCase(ChatUtils.colored("&6MyChest"))) {
-//                event.setCancelled(true);
-//            }
-//            if (itemName.equalsIgnoreCase(ChatUtils.colored("&eCobblestone"))) {
-//                event.setCancelled(true);
-//                user.setCobble(!user.isCobble());
-//                this.plugin.getDropMenu().createInventory(player);
-//            }
-//            if (itemName.equalsIgnoreCase(ChatUtils.colored("&eWiadomosci"))) {
-//                event.setCancelled(true);
-//                user.setMessages(!user.isMessages());
-//                this.plugin.getDropMenu().createInventory(player);
-//            }
-//            if (itemName.equalsIgnoreCase(ChatUtils.colored("&aWlacz wszystkie dropy"))) {
-//                event.setCancelled(true);
-//                user.getDisabledDrops().clear();
-//                this.plugin.getDropMenu().createInventory(player);
-//            }
-//            if (itemName.equalsIgnoreCase(ChatUtils.colored("&cWylacz wszystkie dropy"))) {
-//                event.setCancelled(true);
-//                user.getDisabledDrops().addAll(this.plugin.getDropManager().getDropList());
-//                this.plugin.getDropMenu().createInventory(player);
-//            }
-//            if (itemName.equalsIgnoreCase(ChatUtils.colored("&eDostepne eventy:"))) {
-//                event.setCancelled(true);
-//            }
-//            if (itemName.equalsIgnoreCase(ChatUtils.colored("&8*"))) {
-//                event.setCancelled(true);
-//            }
-//            if (itemName.equalsIgnoreCase(ChatUtils.colored("&6Menu"))) {
-//                event.setCancelled(true);
-//                player.openInventory(this.plugin.getMainMenu().getInventory());
-//            }
-//        }
+        if (inventory.getTitle().equalsIgnoreCase(ChatUtils.colored("&9DROP")) && itemStack != null && itemStack.getItemMeta() != null && itemStack.getItemMeta().getDisplayName() != null) {
+            event.setCancelled(true);
+            final String itemName = ChatUtils.colored(event.getCurrentItem().getItemMeta().getDisplayName());
+            for (final Drop drop : this.plugin.getDropManager().getDropList()) {
+                if (itemName.equalsIgnoreCase(ChatUtils.colored("&6" + drop.getName()))) {
+                    if (user.isDisabled(drop)) {
+                        user.getDisabledDrops().remove(drop);
+                    }
+                    else {
+                        user.getDisabledDrops().add(drop);
+                    }
+                    final ItemStack item = event.getCurrentItem();
+                    final ItemMeta meta = item.getItemMeta();
+                    final List string = meta.getLore();
+                    string.set(5, ChatUtils.colored("&7Status: " + (user.isDisabled(drop) ? "&c✖" : "&a✔")));
+                    meta.setLore(string);
+                    item.setItemMeta(meta);
+                    event.setCancelled(true);
+                }
+            }
+
+            if (itemName.equalsIgnoreCase(ChatUtils.colored("&eCobblestone"))) {
+                event.setCancelled(true);
+                user.setCobble(!user.isCobble());
+                DropMenu.createInventory(player);
+            }
+            if (itemName.equalsIgnoreCase(ChatUtils.colored("&eWiadomosci"))) {
+                event.setCancelled(true);
+                user.setMessages(!user.isMessages());
+                DropMenu.createInventory(player);
+            }
+            if (itemName.equalsIgnoreCase(ChatUtils.colored("&aWlacz wszystkie dropy"))) {
+                event.setCancelled(true);
+                user.getDisabledDrops().clear();
+                DropMenu.createInventory(player);
+            }
+            if (itemName.equalsIgnoreCase(ChatUtils.colored("&cWylacz wszystkie dropy"))) {
+                event.setCancelled(true);
+                user.getDisabledDrops().addAll(this.plugin.getDropManager().getDropList());
+                DropMenu.createInventory(player);
+            }
+        }
 //        if (inventory.getName().contains(ChatUtils.colored("&8[&6EZHC&8] &7- &6Uprawnienia gracza: &c"))) {
 //            event.setCancelled(true);
 //            final UserData userData = this.plugin.getUserManager().findUserByName(inventory.getName().replace(ChatUtils.colored("&8[&6MY&fHC&8] &7- &6Uprawnienia gracza: &c"), ""));

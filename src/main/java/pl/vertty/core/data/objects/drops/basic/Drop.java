@@ -6,18 +6,20 @@ package pl.vertty.core.data.objects.drops.basic;
 
 import org.bukkit.inventory.ItemStack;
 import pl.vertty.api.self.Count;
+import pl.vertty.core.utils.ItemBuilder;
 
 public final class Drop
 {
-    private final ItemStack Item;
+    private final ItemBuilder Item;
     private final boolean fortune;
     private final String name;
     private final double chance;
     private final Count height;
     private final Count amount;
     private final int exp;
+    private final int slot;
     
-    public Drop(final String name, final boolean fortune, final ItemStack Item, final double chance, final Count height, final Count amount, final int exp) {
+    public Drop(final String name, final boolean fortune, final ItemBuilder Item, final double chance, final Count height, final Count amount, final int exp, final int slot) {
         this.Item = Item;
         this.fortune = fortune;
         this.name = name;
@@ -25,6 +27,7 @@ public final class Drop
         this.height = height;
         this.amount = amount;
         this.exp = exp;
+        this.slot = slot;
     }
     
     public String getName() {
@@ -35,7 +38,7 @@ public final class Drop
         return this.fortune;
     }
     
-    public ItemStack getItem() {
+    public ItemBuilder getItem() {
         return this.Item;
     }
     
@@ -54,4 +57,9 @@ public final class Drop
     public int getExp() {
         return this.exp;
     }
+
+    public int getSlot() {
+        return this.slot;
+    }
+
 }

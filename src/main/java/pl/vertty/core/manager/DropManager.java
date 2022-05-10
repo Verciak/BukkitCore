@@ -10,10 +10,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import pl.vertty.core.builder.MessageBuilder;
 import pl.vertty.core.data.objects.user.UserData;
-import pl.vertty.core.utils.ChatUtils;
-import pl.vertty.core.utils.ItemUtils;
-import pl.vertty.core.utils.ParserUtils;
-import pl.vertty.core.utils.RandomUtils;
+import pl.vertty.core.utils.*;
 import pl.vertty.core.data.config.PluginConfiguration;
 import pl.vertty.api.self.Count;
 import com.google.common.collect.Lists;
@@ -45,9 +42,11 @@ public class DropManager
             final double chance = section.getDouble("chance", 5.0);
             final boolean fortune = section.getBoolean("fortune", true);
             final int exp = section.getInt("exp", 3);
+            final int slot = section.getInt("slot");
             final ItemStack itemStack = ParserUtils.parseItemStack(section.getString("item"));
+            ItemBuilder builder = new ItemBuilder(itemStack.getType(), itemStack.getAmount(), itemStack.getDurability());
             final String name = section.getString("name", "Diament");
-            final Drop drop = new Drop(name, fortune, itemStack, chance, height, amount, exp);
+            final Drop drop = new Drop(name, fortune, builder, chance, height, amount, exp, slot);
             this.dropList.add(drop);
         }
         plugin.getLogger().info("Zaladowano " + this.dropList.size() + " dropow ze stone!");

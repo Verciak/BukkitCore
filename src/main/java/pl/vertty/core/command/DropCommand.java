@@ -6,7 +6,9 @@ package pl.vertty.core.command;
 
 
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import pl.vertty.api.commands.Command;
+import pl.vertty.core.menu.DropMenu;
 
 import java.util.List;
 
@@ -18,7 +20,7 @@ public class DropCommand extends Command
     
     @Override
     public boolean onExecute(CommandSender commandSender, String[] args) {
-//        DropMenu.createInventory((Player) commandSender);
+        DropMenu.createInventory((Player) commandSender);
         return false;
     }
 }
