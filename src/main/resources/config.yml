@@ -2,7 +2,7 @@ database:
   host: localhost
   port: 3306
   user: root
-  pass: domiS2002
+  pass: passs
   base: xd
 deposit:
   notch: 1
